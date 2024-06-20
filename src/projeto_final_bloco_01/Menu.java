@@ -9,6 +9,10 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 		
 		int opcao;
+		int numero;
+		int tipo;
+		String nomeprod;
+		float preco;
 		
 		while (true) {
 
