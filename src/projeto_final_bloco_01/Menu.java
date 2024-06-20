@@ -1,22 +1,35 @@
 package projeto_final_bloco_01;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import produto.model.Maquiagem;
 import produto.model.Produto;
+import produto.model.Skincare;
 
 public class Menu {
 
 	public static void main(String[] args) {
 
-		//Teste da classe Menu
-		Produto p1 = new Produto(001, 1, "Blush", 25.0f);
-		p1.visualizar();
-		p1.atualizarpreco(12000.0f);
-		p1.visualizar();
-		p1.atualizarpreco(30.0f);
+		
+        Produto p1 = new Maquiagem(1, 1, "Base Líquida", 25.99f);
+        
+        p1.visualizar();        
+        p1.atualizarPreco(59.99f);        
+        p1.visualizar();
 
+        
+        Produto p2 = new Skincare(1, 2, "Hidratante", 30.99f);
+        
+        p2.visualizar();        
+        p2.atualizarPreco(75.00f);        
+        p2.visualizar();
+        
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
+		
+		
 
 
 		while (true) {
@@ -38,8 +51,16 @@ public class Menu {
 			System.out.println("Digite a opção desejada:                             ");
 			System.out.println("                                                     ");
 
-			opcao = leia.nextInt();
-
+			try{
+			
+				opcao = leia.nextInt();
+			}
+			catch (InputMismatchException e) {
+				System.out.println("\nDigite valores inteiros!");
+				leia.nextLine();
+				opcao = 0;
+			}
+			
 			if (opcao == 6) {
 				System.out.println("\n JavaBeauty ♥ Beleza codificada para você!");
 				leia.close();

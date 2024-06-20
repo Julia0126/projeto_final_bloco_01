@@ -61,10 +61,9 @@ public abstract class Produto {
 		System.out.println("Preço: " + this.preco);
 
 	}
-	public float atualizarpreco(float f) {
-		return preco;
 
-
+	public void atualizarPreco(float novoPreco) {
+		this.preco = novoPreco;
 
 	}
 }
