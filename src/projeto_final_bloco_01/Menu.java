@@ -6,7 +6,7 @@ import produto.model.Produto;
 public class Menu {
 
 	public static void main(String[] args) {
-		
+
 		//Teste da classe Menu
 		Produto p1 = new Produto(001, 1, "Blush", 25.0f);
 		p1.visualizar();
@@ -17,8 +17,8 @@ public class Menu {
 		Scanner leia = new Scanner(System.in);
 
 		int opcao;
-		
-		
+
+
 		while (true) {
 
 			System.out.println("________________________♥____________________________");
@@ -47,32 +47,32 @@ public class Menu {
 			}
 
 			switch (opcao) {
-				case 1:
-					System.out.println("Cadastrar produto\n\n");
+			case 1:
+				System.out.println("Cadastrar produto\n\n");
 
-					break;
-				case 2:
-					System.out.println("Listar todos os produtos\n\n");
+				break;
+			case 2:
+				System.out.println("Listar todos os produtos\n\n");
 
-					break;
-				case 3:
-					System.out.println("Consultar dados do produto - por sku\n\n");
+				break;
+			case 3:
+				System.out.println("Consultar dados do produto - por sku\n\n");
 
-					break;
-				case 4:
-					System.out.println("Atualizar dados do produto\n\n");
+				break;
+			case 4:
+				System.out.println("Atualizar dados do produto\n\n");
 
-					break;
-				case 5:
-					System.out.println("Apagar o produto\n\n");
+				break;
+			case 5:
+				System.out.println("Apagar o produto\n\n");
 
-					break;
-				default:
-					System.out.println("\nOpção Inválida!\n");
-					break;
+				break;
+			default:
+				System.out.println("\nOpção Inválida!\n");
+				break;
 			}
 		}
 	}
-		
 
-	}
+
+}
