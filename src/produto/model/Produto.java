@@ -1,6 +1,6 @@
 package produto.model;
 
-public class Produto {
+public abstract class Produto {
 
 	int numero;
 	int tipo;
