@@ -1,18 +1,23 @@
 package projeto_final_bloco_01;
 
 import java.util.Scanner;
+import produto.model.Produto;
 
 public class Menu {
 
 	public static void main(String[] args) {
 		
+		//Teste da classe Menu
+		Produto p1 = new Produto(001, 1, "Blush", 25.0f);
+		p1.visualizar();
+		p1.atualizarpreco(12000.0f);
+		p1.visualizar();
+		p1.atualizarpreco(30.0f);
+
 		Scanner leia = new Scanner(System.in);
-		
+
 		int opcao;
-		int numero;
-		int tipo;
-		String nomeprod;
-		float preco;
+		
 		
 		while (true) {
 
@@ -24,7 +29,7 @@ public class Menu {
 			System.out.println("                                                     ");
 			System.out.println("            1 - Cadastrar produto                    ");
 			System.out.println("            2 - Listar todos os produtos             ");
-			System.out.println("            3 - Buscar produto por número            ");
+			System.out.println("            3 - Buscar produto por sku            ");
 			System.out.println("            4 - Atualizar dados do produto           ");
 			System.out.println("            5 - Apagar produto                       ");
 			System.out.println("            6 - Sair                                 ");
@@ -51,7 +56,7 @@ public class Menu {
 
 					break;
 				case 3:
-					System.out.println("Consultar dados do produto - por número\n\n");
+					System.out.println("Consultar dados do produto - por sku\n\n");
 
 					break;
 				case 4:
