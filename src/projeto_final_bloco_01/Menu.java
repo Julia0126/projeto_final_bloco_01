@@ -1,35 +1,22 @@
 package projeto_final_bloco_01;
 
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import produto.controller.ProdutoController;
 import produto.model.Maquiagem;
-import produto.model.Produto;
-import produto.model.Skincare;
 
 public class Menu {
 
 	public static void main(String[] args) {
 
-		
-        Produto p1 = new Maquiagem(1, 1, "Base Líquida", 25.99f);
-        
-        p1.visualizar();        
-        p1.atualizarPreco(59.99f);        
-        p1.visualizar();
+		ProdutoController produtos = new ProdutoController();
 
-        
-        Produto p2 = new Skincare(1, 2, "Hidratante", 30.99f);
-        
-        p2.visualizar();        
-        p2.atualizarPreco(75.00f);        
-        p2.visualizar();
-        
 		Scanner leia = new Scanner(System.in);
-
-		int opcao;
-		
-		
+		int opcao, tipo, numero;
+		String nomeprod;
+		float preco;
 
 
 		while (true) {
@@ -52,7 +39,7 @@ public class Menu {
 			System.out.println("                                                     ");
 
 			try{
-			
+
 				opcao = leia.nextInt();
 			}
 			catch (InputMismatchException e) {
@@ -60,7 +47,7 @@ public class Menu {
 				leia.nextLine();
 				opcao = 0;
 			}
-			
+
 			if (opcao == 6) {
 				System.out.println("\n JavaBeauty ♥ Beleza codificada para você!");
 				leia.close();
@@ -71,28 +58,86 @@ public class Menu {
 			case 1:
 				System.out.println("Cadastrar produto\n\n");
 
+				System.out.println("Digite o nome do produto:");
+				leia.nextLine();
+				nomeprod = leia.nextLine();
+
+				
+				do {
+					System.out.println("Digite o tipo de produto (1 Make ou 2 Skin):");
+					tipo = leia.nextInt();
+				}while(tipo < 1 || tipo > 2);
+
+				System.out.println("Digite o valor do produto (R$)");
+				preco = leia.nextFloat();
+
+				produtos.cadastrar(new Maquiagem (produtos.gerarNumero(), tipo, nomeprod, preco));
+
+				keyPress();
 				break;
 			case 2:
 				System.out.println("Listar todos os produtos\n\n");
-
+				produtos.listarTodos();
+				
+				keyPress();
 				break;
 			case 3:
 				System.out.println("Consultar dados do produto - por sku\n\n");
 
+				System.out.println("Digite a sku do produto:");
+				numero = leia.nextInt();
+				produtos.procurarPorSku(numero);
+				
+				keyPress();
 				break;
 			case 4:
 				System.out.println("Atualizar dados do produto\n\n");
+				System.out.println("Digite o sku do produto:");
+				int skuchange = leia.nextInt();
 
+				System.out.println("Digite o nome do produto:");
+				leia.nextLine();
+				nomeprod = leia.nextLine();			
+
+				do {
+					System.out.println("Digite o tipo de produto (1 Make ou 2 Skin):");
+					tipo = leia.nextInt();
+				}while(tipo < 1 || tipo > 2);
+
+				System.out.println("Digite o valor do produto (R$)");
+				preco = leia.nextFloat();
+
+				produtos.atualizar(new Maquiagem (skuchange, tipo, nomeprod, preco));
+				
+				keyPress();
 				break;
 			case 5:
 				System.out.println("Apagar o produto\n\n");
 
+				System.out.println("Digita a sku do produto:");
+				numero = leia.nextInt();
+
+				produtos.deletar(numero);
+				
+				keyPress();
 				break;
 			default:
 				System.out.println("\nOpção Inválida!\n");
+				keyPress();
 				break;
 			}
 		}
+	}
+
+	private static void keyPress() {
+
+		try {
+			System.out.println("\nPressione Enter para continuar...");
+			System.in.read();
+		} catch (IOException e) {
+			System.out.println("Você pressionou uma tecla diferente de enter!");
+		}	
+
 	}
 
 

@@ -18,6 +18,4 @@ public class Maquiagem extends Produto {
 		this.preco = preco;
 	}
 
-
-
 }
