@@ -12,24 +12,24 @@ public class ProdutoController implements ProdutoRepository {
 
 	@Override
 	public void procurarPorSku(int numero) {
-	    Optional<Produto> skuBusca = buscarNaCollection(numero);
+		Optional<Produto> skuBusca = buscarNaCollection(numero);
 
-	    if (skuBusca.isPresent()) {
-	        Produto produto = skuBusca.get();
-	        produto.visualizar();
-	    } else {
-	        System.out.println("\nA SKU " + numero + " não foi encontrada!");
-	    }
+		if (skuBusca.isPresent()) {
+			Produto produto = skuBusca.get();
+			produto.visualizar();
+		} else {
+			System.out.println("\nA SKU " + numero + " não foi encontrada!");
+		}
 	}
 	private Optional<Produto> buscarNaCollection(int numero) {
-	    for (int i = 0; i < listaProdutos.size(); i++) {
-	        if (numero == listaProdutos.get(i).getNumero()) {
-	            Optional<Produto> produtooptional = Optional.of(listaProdutos.get(i));
-	            return produtooptional;
-	        }
-	    }
-	    Optional<Produto> optionalvazio = Optional.empty();
-	    return optionalvazio;
+		for (int i = 0; i < listaProdutos.size(); i++) {
+			if (numero == listaProdutos.get(i).getNumero()) {
+				Optional<Produto> produtooptional = Optional.of(listaProdutos.get(i));
+				return produtooptional;
+			}
+		}
+		Optional<Produto> optionalvazio = Optional.empty();
+		return optionalvazio;
 	}
 
 	@Override
@@ -70,11 +70,6 @@ public class ProdutoController implements ProdutoRepository {
 
 	}
 
-	@Override
-	public void precificar(int numero, float valor) {
-
-
-	}
 
 	public int gerarNumero() {
 		return ++ numero;

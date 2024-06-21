@@ -21,9 +21,9 @@ public class Menu {
 
 
 		while (true) {
-			
+
 			System.out.println(Cores.TEXT_CYAN + Cores.ANSI_BLACK_BACKGROUND + 
-							   "________________________♥____________________________");
+					"________________________♥____________________________");
 			System.out.println("                                                     ");
 			System.out.println("                E-commerce JavaBeauty                ");
 			System.out.println("                                                     ");
@@ -39,7 +39,7 @@ public class Menu {
 			System.out.println("________________________♥____________________________");
 			System.out.println("Digite a opção desejada:                             ");
 			System.out.println("                                                     " + Cores.TEXT_RESET);
-			
+
 			try{
 
 				opcao = leia.nextInt();
@@ -64,7 +64,7 @@ public class Menu {
 				leia.nextLine();
 				nomeprod = leia.nextLine();
 
-				
+
 				do {
 					System.out.println("Digite o tipo de produto (1 Make ou 2 Skin):");
 					tipo = leia.nextInt();
@@ -80,7 +80,7 @@ public class Menu {
 			case 2:
 				System.out.println(Cores.TEXT_WHITE + "Listar todos os produtos\n\n");
 				produtos.listarTodos();
-				
+
 				keyPress();
 				break;
 			case 3:
@@ -89,7 +89,7 @@ public class Menu {
 				System.out.println("Digite a sku do produto:");
 				numero = leia.nextInt();
 				produtos.procurarPorSku(numero);
-				
+
 				keyPress();
 				break;
 			case 4:
@@ -110,7 +110,7 @@ public class Menu {
 				preco = leia.nextFloat();
 
 				produtos.atualizar(new Maquiagem (skuchange, tipo, nomeprod, preco));
-				
+
 				keyPress();
 				break;
 			case 5:
@@ -120,7 +120,7 @@ public class Menu {
 				numero = leia.nextInt();
 
 				produtos.deletar(numero);
-				
+
 				keyPress();
 				break;
 			default:

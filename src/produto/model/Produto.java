@@ -62,8 +62,5 @@ public abstract class Produto {
 
 	}
 
-	public void atualizarPreco(float novoPreco) {
-		this.preco = novoPreco;
 
-	}
 }
