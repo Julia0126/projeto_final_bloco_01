@@ -3,6 +3,7 @@ package projeto_final_bloco_01;
 import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import produto.util.Cores;
 
 import produto.controller.ProdutoController;
 import produto.model.Maquiagem;
@@ -20,8 +21,9 @@ public class Menu {
 
 
 		while (true) {
-
-			System.out.println("________________________♥____________________________");
+			
+			System.out.println(Cores.TEXT_CYAN + Cores.ANSI_BLACK_BACKGROUND + 
+							   "________________________♥____________________________");
 			System.out.println("                                                     ");
 			System.out.println("                E-commerce JavaBeauty                ");
 			System.out.println("                                                     ");
@@ -29,15 +31,15 @@ public class Menu {
 			System.out.println("                                                     ");
 			System.out.println("            1 - Cadastrar produto                    ");
 			System.out.println("            2 - Listar todos os produtos             ");
-			System.out.println("            3 - Buscar produto por sku            ");
+			System.out.println("            3 - Buscar produto por sku               ");
 			System.out.println("            4 - Atualizar dados do produto           ");
 			System.out.println("            5 - Apagar produto                       ");
 			System.out.println("            6 - Sair                                 ");
 			System.out.println("                                                     ");
 			System.out.println("________________________♥____________________________");
 			System.out.println("Digite a opção desejada:                             ");
-			System.out.println("                                                     ");
-
+			System.out.println("                                                     " + Cores.TEXT_RESET);
+			
 			try{
 
 				opcao = leia.nextInt();
@@ -49,14 +51,14 @@ public class Menu {
 			}
 
 			if (opcao == 6) {
-				System.out.println("\n JavaBeauty ♥ Beleza codificada para você!");
+				System.out.println(Cores.TEXT_WHITE_BOLD + "\n JavaBeauty ♥ Beleza codificada para você!");
 				leia.close();
 				System.exit(0);
 			}
 
 			switch (opcao) {
 			case 1:
-				System.out.println("Cadastrar produto\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Cadastrar produto\n\n");
 
 				System.out.println("Digite o nome do produto:");
 				leia.nextLine();
@@ -76,13 +78,13 @@ public class Menu {
 				keyPress();
 				break;
 			case 2:
-				System.out.println("Listar todos os produtos\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Listar todos os produtos\n\n");
 				produtos.listarTodos();
 				
 				keyPress();
 				break;
 			case 3:
-				System.out.println("Consultar dados do produto - por sku\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Consultar dados do produto - por sku\n\n");
 
 				System.out.println("Digite a sku do produto:");
 				numero = leia.nextInt();
@@ -91,7 +93,7 @@ public class Menu {
 				keyPress();
 				break;
 			case 4:
-				System.out.println("Atualizar dados do produto\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Atualizar dados do produto\n\n");
 				System.out.println("Digite o sku do produto:");
 				int skuchange = leia.nextInt();
 
@@ -112,7 +114,7 @@ public class Menu {
 				keyPress();
 				break;
 			case 5:
-				System.out.println("Apagar o produto\n\n");
+				System.out.println(Cores.TEXT_WHITE + "Apagar o produto\n\n");
 
 				System.out.println("Digita a sku do produto:");
 				numero = leia.nextInt();
@@ -122,7 +124,7 @@ public class Menu {
 				keyPress();
 				break;
 			default:
-				System.out.println("\nOpção Inválida!\n");
+				System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n" + Cores.TEXT_RESET);
 				keyPress();
 				break;
 			}

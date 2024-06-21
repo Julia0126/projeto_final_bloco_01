@@ -72,7 +72,7 @@ public class ProdutoController implements ProdutoRepository {
 
 	@Override
 	public void precificar(int numero, float valor) {
-		// TODO Auto-generated method stub
+
 
 	}
 
